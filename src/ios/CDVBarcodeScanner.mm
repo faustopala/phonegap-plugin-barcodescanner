@@ -974,7 +974,7 @@ parentViewController:(UIViewController*)parentViewController
         CGContextBeginPath(context);
         CGFloat lineOffset = (CGFloat) (RETICLE_OFFSET+(0.5*RETICLE_WIDTH));
         CGContextMoveToPoint(context, lineOffset, RETICLE_SIZE_H/2);
-        CGContextAddLineToPoint(context, RETICLE_SIZE_H-lineOffset, (CGFloat) (0.5*RETICLE_SIZE_H));
+        CGContextAddLineToPoint(context, RETICLE_SIZE_W-lineOffset, (CGFloat) (0.5*RETICLE_SIZE_W));
         CGContextStrokePath(context);
     }
 
