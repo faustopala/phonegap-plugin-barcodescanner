@@ -775,7 +775,8 @@ parentViewController:(UIViewController*)parentViewController
 - (void)viewDidAppear:(BOOL)animated {
     // setup capture preview layer
     AVCaptureVideoPreviewLayer* previewLayer = self.processor.previewLayer;
-    previewLayer.frame = self.view.bounds;
+    //previewLayer.frame = self.view.bounds;
+    previewLayer.frame = CGRectMake(0,100,100,150);
     previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
 
     if ([previewLayer.connection isVideoOrientationSupported]) {
