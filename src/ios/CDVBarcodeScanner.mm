@@ -953,7 +953,8 @@ parentViewController:(UIViewController*)parentViewController
 
 //--------------------------------------------------------------------------
 
-#define RETICLE_SIZE    500.0f
+#define RETICLE_SIZE_W    500.0f
+#define RETICLE_SIZE_H    250.0f
 #define RETICLE_WIDTH    10.0f
 #define RETICLE_OFFSET   60.0f
 #define RETICLE_ALPHA     0.4f
@@ -963,7 +964,7 @@ parentViewController:(UIViewController*)parentViewController
 //-------------------------------------------------------------------------
 - (UIImage*)buildReticleImage {
     UIImage* result;
-    UIGraphicsBeginImageContext(CGSizeMake(RETICLE_SIZE, RETICLE_SIZE));
+    UIGraphicsBeginImageContext(CGSizeMake(RETICLE_SIZE_W, RETICLE_SIZE_H));
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     if (self.processor.is1D) {
@@ -972,8 +973,8 @@ parentViewController:(UIViewController*)parentViewController
         CGContextSetLineWidth(context, RETICLE_WIDTH);
         CGContextBeginPath(context);
         CGFloat lineOffset = (CGFloat) (RETICLE_OFFSET+(0.5*RETICLE_WIDTH));
-        CGContextMoveToPoint(context, lineOffset, RETICLE_SIZE/2);
-        CGContextAddLineToPoint(context, RETICLE_SIZE-lineOffset, (CGFloat) (0.5*RETICLE_SIZE));
+        CGContextMoveToPoint(context, lineOffset, RETICLE_SIZE_H/2);
+        CGContextAddLineToPoint(context, RETICLE_SIZE_H-lineOffset, (CGFloat) (0.5*RETICLE_SIZE_H));
         CGContextStrokePath(context);
     }
 
@@ -985,8 +986,8 @@ parentViewController:(UIViewController*)parentViewController
                             CGRectMake(
                                        RETICLE_OFFSET,
                                        RETICLE_OFFSET,
-                                       RETICLE_SIZE-2*RETICLE_OFFSET,
-                                       RETICLE_SIZE-2*RETICLE_OFFSET
+                                       RETICLE_SIZE_W-2*RETICLE_OFFSET,
+                                       RETICLE_SIZE_H-2*RETICLE_OFFSET
                                        )
                             );
     }
